@@ -1,0 +1,55 @@
+
+
+  <ion-view view-title="Search">
+
+
+  <ion-content on-swipe-left="setCurrent(2)">
+      <ion-refresher
+    pulling-text="Pull to refresh..."
+    on-refresh="doRefresh()">
+  </ion-refresher>
+<label class="item item-input">
+  <i class="icon ion-search placeholder-icon"></i>
+  <input type="search" placeholder="Search" ng-model="searchQuery" ng-change="submit_my_search(searchQuery)" ng-model-options="{debounce: 300}">
+</label>
+<!--<button class="button button-stable" ng-click="submit_my_search(searchQuery)">
+  Submit
+</button>-->
+  <!--<p>
+{{response}}
+{{error}}
+  </p>-->
+
+
+<div class="list">
+  <div dir-paginate="book in response | itemsPerPage: 5"
+    [current-page=""]
+    [pagination-id=""]
+    [total-items=""] >
+    <a class="item item-thumbnail-left" href="#/app/details/{{book.best_book.id.__text}}">
+      <img src="{{book.best_book.small_image_url}}">
+      <h2>{{book.best_book.title}}</h2>
+      <p>{{book.best_book.author.name}}</p>
+    </a>
+
+  </div>
+
+<!--<div class="range-label">Displaying {{ range.lower }} - {{ range.upper }} of {{ range.total }}</div>
+
+<a href="" title="Previous page" ng-class="{ disabled : pagination.current == 1 }" ng-click="setCurrent(pagination.current - 1)">&lsaquo;</a>
+<a href="" title="Next page"  ng-class="{ disabled : pagination.current == pagination.last }" ng-click="setCurrent(pagination.current + 1)">&rsaquo;</a>-->
+
+  <dir-pagination-controls
+    [max-size=""]
+    [direction-links=""]
+    [boundary-links=""]
+    [on-page-change=""]
+    [pagination-id=""]
+    [template-url=""]
+    [auto-hide=""]>
+    </dir-pagination-controls>
+</div>
+
+
+  </ion-content>
+</ion-view>

@@ -1,0 +1,14 @@
+<div class="list card">
+
+  <div class="item item-avatar">
+    <img src="{{response.authors.author[0].image_url.__cdata}}">
+    <h2>{{response.title.__cdata}}</h2>
+    <p>{{response.publication_month}} / {{response.publication_day}} / {{response.publication_year}}</p>
+  </div>
+
+  <div class="item item-body">
+    <!--<img class="full-image" src="delorean.jpg">-->
+    <p> {{response.description.__cdata | htmlToPlaintext}}</p>
+  </div>
+
+</div>
